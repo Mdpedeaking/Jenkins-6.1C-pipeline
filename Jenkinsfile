@@ -12,7 +12,7 @@ pipeline {
             post {
                 always {
                     script {
-                        emailext attachLog: True, 
+                        emailext attachLog: true, 
                                  subject: "Build Status - ${currentBuild.currentResult}", 
                                  body: "Gradle build has ${currentBuild.currentResult}.",
                                  to: 'nethmini2020.p@gmail.com'
@@ -32,7 +32,7 @@ pipeline {
             post {
                 always {
                     script {
-                        emailext attachLog: True, 
+                        emailext attachLog: true, 
                                  subject: "Unit and Integration Tests Status - ${currentBuild.currentResult}", 
                                  body: "Unit and Integration tests have ${currentBuild.currentResult}.",
                                  to: 'nethmini2020.p@gmail.com'
@@ -51,7 +51,7 @@ pipeline {
             post {
                 always {
                     script {
-                        emailext attachLog: True, 
+                        emailext attachLog: true, 
                                  subject: "Code Analysis Status - ${currentBuild.currentResult}", 
                                  body: "Code analysis has ${currentBuild.currentResult}.",
                                  to: 'nethmini2020.p@gmail.com'
@@ -70,7 +70,7 @@ pipeline {
             post {
                 always {
                     script {
-                        emailext attachLog: True, 
+                        emailext attachLog: true, 
                                  subject: "Security Scan Status - ${currentBuild.currentResult}", 
                                  body: "Security scan has ${currentBuild.currentResult}.",
                                  to: 'nethmini2020.p@gmail.com'
@@ -85,7 +85,7 @@ pipeline {
                     echo "Deploy to Staging: Deploy the application to a staging server using the SSH method in gradle configurations"
                     // sshagent(credentials: [env.SSH_CREDENTIALS_ID]) {
                     //     sh """
-                    //     scp -o StrictHostKeyChecking=no build/libs/your-app.jar user@${env.STAGING_SERVER}:/path/to/deploy/ ->
+                    //     scp -o StrictHostKeyChecking=no build/libs/your-app.jar user@${env.STAGING_SERVER}:/path/to/deploy/
                     //     ssh -o StrictHostKeyChecking=no user@${env.STAGING_SERVER} 'bash -s' < deploy_script.sh
                     //     """
                     // } -> staging server reached through referencing potential environment variables that could be created for the staging server
@@ -94,7 +94,7 @@ pipeline {
             post {
                 always {
                     script {
-                        emailext attachLog: True, 
+                        emailext attachLog: true, 
                                  subject: "Deployment to Staging Status - ${currentBuild.currentResult}", 
                                  body: "Deployment to staging has ${currentBuild.currentResult}.",
                                  to: 'nethmini2020.p@gmail.com'
@@ -113,7 +113,7 @@ pipeline {
             post {
                 always {
                     script {
-                        emailext attachLog: True, 
+                        emailext attachLog: true, 
                                  subject: "Integration Tests on Staging Status - ${currentBuild.currentResult}", 
                                  body: "Integration tests on staging have ${currentBuild.currentResult}.",
                                  to: 'nethmini2020.p@gmail.com'
@@ -137,7 +137,7 @@ pipeline {
             post {
                 always {
                     script {
-                        emailext attachLog: True, 
+                        emailext attachLog: true, 
                                  subject: "Deployment to Production Status - ${currentBuild.currentResult}", 
                                  body: "Deployment to production has ${currentBuild.currentResult}.",
                                  to: 'nethmini2020.p@gmail.com'
