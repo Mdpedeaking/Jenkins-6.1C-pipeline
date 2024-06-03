@@ -4,8 +4,8 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    echo "-Fetch the source code from the directory path specified by the environment variable-"
-                    echo "-Compile and package the code using Gradle-"
+                    echo "--Fetch the source code from the directory path specified by the environment variable--"
+                    echo "--Compile and package the code using Gradle--"
                     echo "Within the build stage, the code is compiled and packaged into a deployable artifact where the foundations of the next stages are set." 
                     echo "It is within this step that ensures that commits pushed through to the git repository goes through consistently and repeatedly, so that errors can be caught early in the development cycle to facilitate the continuous and integrated delivery."
                     echo "Throughout this pipeline, I recommend using gradle, which is an automation tool that handles project dependencies and conveniently compiles and runs tests on the code and packages the application"
