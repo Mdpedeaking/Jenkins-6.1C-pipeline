@@ -16,7 +16,7 @@ pipeline {
                 always {
                     script {
                         emailext attachLog: true, 
-                                 subject: "Build Status - ${currentBuild.currentResult}", 
+                                 subject: "Build STATUS - ${currentBuild.currentResult}", 
                                  body: "Gradle build has ${currentBuild.currentResult}.",
                                  to: 'nethmini2020.p@gmail.com'
                     }
@@ -38,7 +38,7 @@ pipeline {
                 always {
                     script {
                         emailext attachLog: true, 
-                                 subject: "Unit and Integration Tests Status - ${currentBuild.currentResult}", 
+                                 subject: "Unit and Integration Tests STATUS - ${currentBuild.currentResult}", 
                                  body: "Unit and Integration tests have ${currentBuild.currentResult}.",
                                  to: 'nethmini2020.p@gmail.com'
                     }
@@ -59,7 +59,7 @@ pipeline {
                 always {
                     script {
                         emailext attachLog: true, 
-                                 subject: "Code Analysis Status - ${currentBuild.currentResult}", 
+                                 subject: "Code Analysis STATUS - ${currentBuild.currentResult}", 
                                  body: "Code analysis has ${currentBuild.currentResult}.",
                                  to: 'nethmini2020.p@gmail.com'
                     }
@@ -79,7 +79,7 @@ pipeline {
                 always {
                     script {
                         emailext attachLog: true, 
-                                 subject: "Security Scan Status - ${currentBuild.currentResult}", 
+                                 subject: "Security Scan STATUS - ${currentBuild.currentResult}", 
                                  body: "Security scan has ${currentBuild.currentResult}.",
                                  to: 'nethmini2020.p@gmail.com'
                     }
@@ -104,7 +104,7 @@ pipeline {
                 always {
                     script {
                         emailext attachLog: true, 
-                                 subject: "Deployment to Staging Status - ${currentBuild.currentResult}", 
+                                 subject: "Deployment to Staging STATUS - ${currentBuild.currentResult}", 
                                  body: "Deployment to staging has ${currentBuild.currentResult}.",
                                  to: 'nethmini2020.p@gmail.com'
                     }
@@ -125,7 +125,7 @@ pipeline {
                 always {
                     script {
                         emailext attachLog: true, 
-                                 subject: "Integration Tests on Staging Status - ${currentBuild.currentResult}", 
+                                 subject: "Integration Tests on Staging STATUS - ${currentBuild.currentResult}", 
                                  body: "Integration tests on staging have ${currentBuild.currentResult}.",
                                  to: 'nethmini2020.p@gmail.com'
                     }
@@ -151,7 +151,7 @@ pipeline {
                 always {
                     script {
                         emailext attachLog: true, 
-                                 subject: "Deployment to Production Status - ${currentBuild.currentResult}", 
+                                 subject: "Deployment to Production STATUS - ${currentBuild.currentResult}", 
                                  body: "Deployment to production has ${currentBuild.currentResult}.",
                                  to: 'nethmini2020.p@gmail.com'
                     }
