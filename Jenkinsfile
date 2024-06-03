@@ -4,18 +4,15 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    echo "Fetch the source code from the directory path specified by the environment variable"
-                    echo "Compile and package the code using Gradle"
+                    echo "Build: Fetch the source code from the directory path specified by the environment variable"
+                    echo "Build: Compile and package the code using Gradle"
                     // sh 'gradle clean build' -> command to compile and package the code using gradle
                 }
             }
             post {
                 always {
                     script {
-                        def logFileName = "build-log-${env.BUILD_TAG}.txt"
-                        sh "cp ${JENKINS_HOME}/jobs/${JOB_NAME}/builds/${BUILD_NUMBER}/log ${WORKSPACE}/${logFileName}"
-                        emailext attachLog: false, 
-                                 attachmentsPattern: logFileName, 
+                        emailext attachLog: True, 
                                  subject: "Build Status - ${currentBuild.currentResult}", 
                                  body: "Gradle build has ${currentBuild.currentResult}.",
                                  to: 'nethmini2020.p@gmail.com'
@@ -35,10 +32,7 @@ pipeline {
             post {
                 always {
                     script {
-                        def logFileName = "unit-integration-tests-log-${env.BUILD_TAG}.txt"
-                        sh "cp ${JENKINS_HOME}/jobs/${JOB_NAME}/builds/${BUILD_NUMBER}/log ${WORKSPACE}/${logFileName}"
-                        emailext attachLog: false, 
-                                 attachmentsPattern: logFileName, 
+                        emailext attachLog: True, 
                                  subject: "Unit and Integration Tests Status - ${currentBuild.currentResult}", 
                                  body: "Unit and Integration tests have ${currentBuild.currentResult}.",
                                  to: 'nethmini2020.p@gmail.com'
@@ -57,10 +51,7 @@ pipeline {
             post {
                 always {
                     script {
-                        def logFileName = "code-analysis-log-${env.BUILD_TAG}.txt"
-                        sh "cp ${JENKINS_HOME}/jobs/${JOB_NAME}/builds/${BUILD_NUMBER}/log ${WORKSPACE}/${logFileName}"
-                        emailext attachLog: false, 
-                                 attachmentsPattern: logFileName, 
+                        emailext attachLog: True, 
                                  subject: "Code Analysis Status - ${currentBuild.currentResult}", 
                                  body: "Code analysis has ${currentBuild.currentResult}.",
                                  to: 'nethmini2020.p@gmail.com'
@@ -79,10 +70,7 @@ pipeline {
             post {
                 always {
                     script {
-                        def logFileName = "security-scan-log-${env.BUILD_TAG}.txt"
-                        sh "cp ${JENKINS_HOME}/jobs/${JOB_NAME}/builds/${BUILD_NUMBER}/log ${WORKSPACE}/${logFileName}"
-                        emailext attachLog: false, 
-                                 attachmentsPattern: logFileName, 
+                        emailext attachLog: True, 
                                  subject: "Security Scan Status - ${currentBuild.currentResult}", 
                                  body: "Security scan has ${currentBuild.currentResult}.",
                                  to: 'nethmini2020.p@gmail.com'
@@ -106,10 +94,7 @@ pipeline {
             post {
                 always {
                     script {
-                        def logFileName = "deploy-to-staging-log-${env.BUILD_TAG}.txt"
-                        sh "cp ${JENKINS_HOME}/jobs/${JOB_NAME}/builds/${BUILD_NUMBER}/log ${WORKSPACE}/${logFileName}"
-                        emailext attachLog: false, 
-                                 attachmentsPattern: logFileName, 
+                        emailext attachLog: True, 
                                  subject: "Deployment to Staging Status - ${currentBuild.currentResult}", 
                                  body: "Deployment to staging has ${currentBuild.currentResult}.",
                                  to: 'nethmini2020.p@gmail.com'
@@ -128,10 +113,7 @@ pipeline {
             post {
                 always {
                     script {
-                        def logFileName = "integration-tests-on-staging-log-${env.BUILD_TAG}.txt"
-                        sh "cp ${JENKINS_HOME}/jobs/${JOB_NAME}/builds/${BUILD_NUMBER}/log ${WORKSPACE}/${logFileName}"
-                        emailext attachLog: false, 
-                                 attachmentsPattern: logFileName, 
+                        emailext attachLog: True, 
                                  subject: "Integration Tests on Staging Status - ${currentBuild.currentResult}", 
                                  body: "Integration tests on staging have ${currentBuild.currentResult}.",
                                  to: 'nethmini2020.p@gmail.com'
@@ -155,10 +137,7 @@ pipeline {
             post {
                 always {
                     script {
-                        def logFileName = "deploy-to-production-log-${env.BUILD_TAG}.txt"
-                        sh "cp ${JENKINS_HOME}/jobs/${JOB_NAME}/builds/${BUILD_NUMBER}/log ${WORKSPACE}/${logFileName}"
-                        emailext attachLog: false, 
-                                 attachmentsPattern: logFileName, 
+                        emailext attachLog: True, 
                                  subject: "Deployment to Production Status - ${currentBuild.currentResult}", 
                                  body: "Deployment to production has ${currentBuild.currentResult}.",
                                  to: 'nethmini2020.p@gmail.com'
