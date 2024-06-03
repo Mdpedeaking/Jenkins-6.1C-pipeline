@@ -4,8 +4,8 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    echo "Build: Fetch the source code from the directory path specified by the environment variable"
-                    echo "Build: Compile and package the code using Gradle"
+                    echo "Fetch the source code from the directory path specified by the environment variable"
+                    echo "Compile and package the code using Gradle"
                     // sh 'gradle clean build' -> command to compile and package the code using gradle
                 }
             }
